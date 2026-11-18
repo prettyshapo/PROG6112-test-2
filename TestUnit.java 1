@@ -1,0 +1,20 @@
+public class Product {
+    private int[] productsSold;
+
+    public Product(int[] productsSold) {
+        this.productsSold = productsSold;
+    }
+
+    public int GetTotalProductsSold() {
+        int total = 0;
+        for (int i = 0; i < productsSold.length; i++) {
+            total = total + productsSold[i];
+        }
+        return total;
+    }
+
+    public double GetAverageProductSold() {
+        int total = GetTotalProductsSold();
+        return (double) total / productsSold.length;
+    }
+}
