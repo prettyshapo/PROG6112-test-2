@@ -1,0 +1,23 @@
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.Test;
+
+public class ProductTest {
+
+    @Test
+    public void GetTotalProductSales_WithValidData_ReturnsCorrectValue() {
+        int[] sales = {10, 20, 30, 40};
+        Product product = new Product(sales);
+        int expected = 100;
+        int actual = product.GetTotalProductsSold();
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void GetAverageSales_WithValidData_ReturnsCorrectValue() {
+        int[] sales = {10, 20, 30, 40};
+        Product product = new Product(sales);
+        double expected = 25.0;
+        double actual = product.GetAverageProductSold();
+        assertEquals(expected, actual, 0.01);
+    }
+}
