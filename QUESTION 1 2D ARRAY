@@ -1,0 +1,75 @@
+import java.util.Scanner;
+
+public class ProductSalesReport {
+
+    public static void main(String[] args) {
+
+        Scanner input = new Scanner(System.in);
+
+        // Declare names of products
+        String[] products = {
+            "Cozy Nights Monarch",
+            "Restonic Barbados",
+            "Sealy Phuket"
+        };
+
+        // 2D array for sales
+        int[][] sales = new int[3][3];
+
+        int totalSales = 0;
+        int averageSales;
+        int highestSales = 0;
+        int popularProduct = 0;
+
+        // Sales information
+        for (int i = 0; i < 3; i++) {
+
+            for (int j = 0; j < 3; j++) {
+
+                System.out.print("Enter number of sales for month "
+                        + (j + 1) + " for " + products[i] + ": ");
+
+                sales[i][j] = input.nextInt();
+
+                totalSales += sales[i][j];
+            }
+        }
+
+        // Product sales total calculations
+        for (int i = 0; i < 3; i++) {
+
+            int productTotal = 0;
+
+            for (int j = 0; j < 3; j++) {
+
+                productTotal += sales[i][j];
+            }
+
+            // Most popular product
+            if (productTotal > highestSales) {
+
+                highestSales = productTotal;
+                popularProduct = i;
+            }
+        }
+
+        // Calculate average sales
+        averageSales = totalSales / 9;
+
+        // Display sales report
+        System.out.println("\nPRODUCT SALES REPORT - 2026");
+
+        System.out.println("************************************");
+
+        System.out.println("TOTAL PRODUCT SALES: " + totalSales);
+
+        System.out.println("AVERAGE PRODUCT SALES: " + averageSales);
+
+        System.out.println("MOST POPULAR PRODUCT: "
+                + products[popularProduct] + " (" + highestSales + ")");
+
+        input.close();
+    }
+}
+    
+
